@@ -13,7 +13,9 @@ Quadrilateral::Quadrilateral() {
 /// @brief constructor 
 /// ta a struct of type TextArea with infos on text and font size
 Quadrilateral::Quadrilateral(TextArea ta) {
-	tarea = &ta;
+	
+	cout << "Quadrilateral - initialized Text Area" << endl;
+	Init(ta);
 } 
 
 /// @brief copy constructor 
@@ -72,8 +74,19 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 /// @brief default initialization of the object
 void Quadrilateral::Init() {
 	SetSides(0.,0.,0.,0.);	
+	SetTextArea();
+	SetText();
+	SetFontSize();
 }
 
+void Quadrilateral::Init(TextArea ta) {
+	Reset();
+	Init();
+	SetTextArea();
+	SetText();
+	SetFontSize();
+
+}
 
 /// @brief initialization of the object as a copy of an object 
 /// @param r reference to the object that should be copied 
@@ -84,9 +97,9 @@ void Quadrilateral::Init(const Quadrilateral &o) {
 	sides[1] = o.sides[1]; 
 	sides[2] = o.sides[2]; 
 	sides[3] = o.sides[3];
-	
-	
 }
+
+
 
 /// @brief total reset of the object  
 void Quadrilateral::Reset() {
