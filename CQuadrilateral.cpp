@@ -74,18 +74,14 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 /// @brief default initialization of the object
 void Quadrilateral::Init() {
 	SetSides(0.,0.,0.,0.);	
-	SetTextArea();
-	SetText();
-	SetFontSize();
+	SetText("None");
+	SetFontSize(0);
 }
 
 void Quadrilateral::Init(TextArea ta) {
 	Reset();
 	Init();
-	SetTextArea();
-	SetText();
-	SetFontSize();
-
+	tarea = &ta;
 }
 
 /// @brief initialization of the object as a copy of an object 
@@ -145,22 +141,20 @@ void Quadrilateral::GetSides(float &s0, float &s1, float &s2, float &s3) {
 /// @brief get the info about the text area
 /// @param ta a struct of type TextArea to be filled
 void Quadrilateral::GetTextArea(TextArea &ta) {
-	
-	
+	ta = *tarea;
 } 
 
 /// @brief get the text of the text area 
 /// @param text the string used in the text area 
 void Quadrilateral::GetText(char* text) {
-	
+	text = tarea->string;
 	
 }
 
 /// @brief get the font size of the text area 
 /// @return the font size
 unsigned int Quadrilateral::GetFontSize() {
-	
-
+	return tarea->size;
 }
 
 
@@ -174,14 +168,13 @@ void Quadrilateral::SetTextArea(TextArea ta) {
 /// @brief set the text of the text area 
 /// @param text the text 
 void Quadrilateral::SetText(char* text) {
-
-
+	*tarea->string = text;									//TO fix
 }
 
 /// @brief set the font size of the text area 
 /// @param size the font size 
 void Quadrilateral::SetFontSize(unsigned int size) {
-	
+	tarea->size = size;
 
 }
 
@@ -216,6 +209,8 @@ void Quadrilateral::Dump() {
 	cout << "Sides = " << sides[0] << "; " << sides[1] << "; " << sides[2] << "; " << sides[3] << "; " << endl;
 	cout << "Perimeter = " << GetPerimeter() << endl;
 	cout << "Area = " << GetArea() << endl;
+	cout << "Text = " << GetText() << endl;
+	cout << "Size text = " << GetFontSize() << endl;
 	cout << "------------------" << endl; 
 	cout << endl;
 

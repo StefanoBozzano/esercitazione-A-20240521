@@ -48,7 +48,7 @@ public:
 	/// @name BASIC HANDLING
 	/// @{
 	void Init();	
-	void Init(TextArea ta);							
+	void Init(TextArea ta);								//OK	
 	void Init(const Quadrilateral &o);							
 	void Reset();												
 	/// @}
