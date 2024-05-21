@@ -208,9 +208,9 @@ void Quadrilateral::Dump() {
 	
 	cout << "Sides = " << sides[0] << "; " << sides[1] << "; " << sides[2] << "; " << sides[3] << "; " << endl;
 	cout << "Perimeter = " << GetPerimeter() << endl;
-	cout << "Area = " << GetArea() << endl;
-	cout << "Text = " << GetText() << endl;
-	cout << "Size text = " << GetFontSize() << endl;
+	//cout << "Area = " << GetArea() << endl;
+	//cout << "Text = " << GetText() << endl;
+//	cout << "Size text = " << GetFontSize() << endl;
 	cout << "------------------" << endl; 
 	cout << endl;
 

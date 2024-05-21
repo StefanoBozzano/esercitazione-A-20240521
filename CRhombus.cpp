@@ -40,9 +40,8 @@ Rhombus::Rhombus(float dL, float dS) {
 /// @param dS diagonal (shorter)
 /// @param ta struct of type TextArea
 Rhombus::Rhombus(float dL, float dS, TextArea ta) {
-
-
-
+	Rhombus(dL,dS);
+	SetTextArea(ta);
 }
 
 /// @brief destructor 
@@ -237,6 +236,9 @@ void Rhombus::Dump() {
 
 /// @brief to draw a rhombus
 void Rhombus::Drawing() {
+	cout << "Sono un rombo con: ";
+	cout << "text: " << tarea->string;
+	cout << "size of text: " << tarea->size;
 	
 
 }
