@@ -13,8 +13,7 @@ Quadrilateral::Quadrilateral() {
 /// @brief constructor 
 /// ta a struct of type TextArea with infos on text and font size
 Quadrilateral::Quadrilateral(TextArea ta) {
-
-	
+	tarea = &ta;
 } 
 
 /// @brief copy constructor 
@@ -72,12 +71,7 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 /// @brief default initialization of the object
 void Quadrilateral::Init() {
-	
-	
-	
-	SetSides(0.,0.,0.,0.);
-	
-		
+	SetSides(0.,0.,0.,0.);	
 }
 
 
