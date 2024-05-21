@@ -24,7 +24,7 @@ Rectangle::Rectangle(float w, float h) {
 
 	Init();
 
-	cout << "Rectangle - constructor" << endl;
+	cout << "Rectangle - constructor with defined height and width" << endl;
 
 	if (w <= 0. || h <= 0.) {
 		WarningMessage("constructor: width and height should be > 0"); 
@@ -40,8 +40,8 @@ Rectangle::Rectangle(float w, float h) {
 /// @param h height of the rectangle 
 /// @param sf struct of type Format
 Rectangle::Rectangle(float w, float h, TextArea ta) {
-
-	
+	Rectangle(w,h);
+	SetTextArea(ta);
 }
 
 /// @brief destructor 
@@ -99,6 +99,7 @@ void Rectangle::Init(const Rectangle &r) {
 	
 	Init();
 	SetDim(r.width,r.height);
+																//Capire se mettere anche il SetTextArea
 	
 }
 
@@ -195,6 +196,9 @@ void Rectangle::ErrorMessage(const char *string) {
 
 /// @brief to draw a rectangle
 void Rectangle::Drawing() {
+	cout << "Sono un rettangolo con: ";
+	cout << "text: " << tarea->string;
+	cout << "size of text: " << tarea->size;
 	
 }
 

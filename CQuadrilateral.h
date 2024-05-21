@@ -34,7 +34,7 @@ public:
 	/// @name CONSTRUCTORS/DESTRUCTOR
 	/// @{
 	Quadrilateral();
-	Quadrilateral(TextArea ta);					//OK
+	Quadrilateral(TextArea ta);					
 	Quadrilateral(const Quadrilateral &o);
 	virtual ~Quadrilateral();
 	/// @}
@@ -48,7 +48,7 @@ public:
 	/// @name BASIC HANDLING
 	/// @{
 	void Init();	
-	void Init(TextArea ta);								//OK	
+	void Init(TextArea ta);									
 	void Init(const Quadrilateral &o);							
 	void Reset();												
 	/// @}
