@@ -161,14 +161,14 @@ unsigned int Quadrilateral::GetFontSize() {
 /// @brief set the text area of the object 
 /// @param ta a struct of type TextArea filled with a text and a font size
 void Quadrilateral::SetTextArea(TextArea ta) {
-
+	tarea = &ta;
 	
 }
 
 /// @brief set the text of the text area 
 /// @param text the text 
 void Quadrilateral::SetText(char* text) {
-	*tarea->string = text;									//TO fix
+	*tarea->string = *text;									//TO fix
 }
 
 /// @brief set the font size of the text area 
