@@ -21,7 +21,7 @@ Rectangle::Rectangle() {
 /// @param w width of the rectangle
 /// @param h height of the rectangle
 Rectangle::Rectangle(float w, float h) {
-
+	
 	Init();
 
 	cout << "Rectangle - constructor with defined height and width" << endl;
@@ -32,16 +32,25 @@ Rectangle::Rectangle(float w, float h) {
 	}
 	else
 		SetDim(w,h);
+		
 
 }
+
 
 /// @brief constructor 
 /// @param w width of the rectangle
 /// @param h height of the rectangle 
 /// @param sf struct of type Format
 Rectangle::Rectangle(float w, float h, TextArea ta) {
-	Rectangle(w,h);
+	cout << "Rectangle - constructor with defined height, width and" << endl;
+	//Rectangle(w,h);
 	SetTextArea(ta);
+	if (w <= 0. || h <= 0.) {
+		WarningMessage("constructor: width and height should be > 0"); 
+		SetDim(0,0);
+	}
+	else
+		SetDim(w,h);
 }
 
 /// @brief destructor 
@@ -88,7 +97,10 @@ bool Rectangle::operator==(const Rectangle &r) {
 
 /// @brief default initialization of the object
 void Rectangle::Init() {
+	
 	SetDim(0,0);
+
+
 	
 }
 
@@ -196,10 +208,19 @@ void Rectangle::ErrorMessage(const char *string) {
 
 /// @brief to draw a rectangle
 void Rectangle::Drawing() {
-	cout << "Sono un rettangolo con: ";
-	cout << "text: " << tarea->string;
-	cout << "size of text: " << tarea->size;
-	
+	const char emply[SLEN] = "";
+	cout << "Sono un rettangolo: ";
+	cout << "\tbase: " << width;
+	cout << "\taltezza: " << height;
+	cout << "\tperimetro: " << GetPerimeter();
+	cout << "\tarea: " << GetArea();
+	if (strcmp(tarea->string, emply) == 0){
+		cout << "\tnessun testo presente"<< endl;
+	}
+	else{
+		cout << "\ttext: " << tarea->string;
+	}
+	cout << "\tsize of text: " << tarea->size << endl;
 }
 
 /// @brief write a warning message 
