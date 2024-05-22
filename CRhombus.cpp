@@ -7,6 +7,7 @@
 #include<iostream> 
 #include<cmath>
 #include "CRhombus.h"
+#include <cstring>
 
 /// @brief default constructor 
 Rhombus::Rhombus() {
@@ -24,7 +25,7 @@ Rhombus::Rhombus(float dL, float dS) {
 
 	Init();
 
-	cout << "Rhombus - constructor" << endl;
+	cout << "Rhombus - constructor with diagL and diagS" << endl;
 
 	if (dL <= 0. || dS <= 0.) {
 		WarningMessage("constructor: diagonals should be > 0"); 
@@ -40,8 +41,16 @@ Rhombus::Rhombus(float dL, float dS) {
 /// @param dS diagonal (shorter)
 /// @param ta struct of type TextArea
 Rhombus::Rhombus(float dL, float dS, TextArea ta) {
-	Rhombus(dL,dS);
-	SetTextArea(ta);
+	cout << "Rhombus - constructor with diagL, diagS and TextArea" << endl;
+	if (dL <= 0. || dS <= 0.) {
+		WarningMessage("constructor: diagonals should be > 0"); 
+		SetDim(0,0);
+	}
+	else
+		SetDim(dL,dS);
+
+	Quadrilateral :: SetTextArea(ta);
+
 }
 
 /// @brief destructor 
@@ -80,7 +89,7 @@ Rhombus& Rhombus::operator=(const Rhombus &r) {
 /// @return true if the two objects have the same width and the same length  
 bool Rhombus::operator==(const Rhombus &r) { 
 
-	if (r.diagL == diagL && r.diagS == diagS)
+	if (r.diagL == diagL && r.diagS == diagS && r.tarea == tarea)
 		return true;
 		
 	return false;
@@ -99,14 +108,15 @@ void Rhombus::Init(const Rhombus &r) {
 		
 	Init();
 	SetDim(r.diagL,r.diagS);
+	Quadrilateral :: SetTextArea(*r.tarea);
 	
 }
 
 /// @brief total reset of the object  
 void Rhombus::Reset() {
+
 	
 	SetDim(0,0);
-	
 }
 
 
@@ -157,7 +167,7 @@ float Rhombus::GetDiagS() {
 /// @return side 
 float Rhombus::GetSide() {
 
-	return sqrt(diagL*diagL/4. + diagS*diagS/4.);
+	return float(sqrt(double(diagL*diagL/4. + diagS*diagS/4.)));
 
 }
 
@@ -194,7 +204,7 @@ void Rhombus::GetDim(float &dL, float &dS) {
 /// @return the area 
 float Rhombus::Area() {
 	
-	return (diagL*diagS/2.);
+	return (diagL*float(diagS/2.));
 }
 
 
@@ -236,11 +246,19 @@ void Rhombus::Dump() {
 
 /// @brief to draw a rhombus
 void Rhombus::Drawing() {
-	cout << "Sono un rombo con: ";
-	cout << "text: " << tarea->string;
-	cout << "size of text: " << tarea->size;
-	
-
+	const char emply[SLEN] = "";
+	cout << "Sono un rombo: ";
+	cout << "\tdiagL: " << diagL;
+	cout << "\tdiagsS " << diagS;
+	cout << "\tperimetro: " << GetPerimeter();
+	cout << "\tarea: " << GetArea();
+	if (strcmp(tarea->string, emply) == 0){
+		cout << "\tnessun testo presente"<< endl;
+	}
+	else{
+		cout << "\ttext: " << tarea->string;
+	}
+	cout << "\tsize of text: " << tarea->size << endl;
 }
 
 

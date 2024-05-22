@@ -73,10 +73,10 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 /// @brief default initialization of the object
 void Quadrilateral::Init() {
-
+	
 	SetSides(0.,0.,0.,0.);	
 	tarea = new TextArea();
-	SetText("");
+	SetText("");									//to fix
 	SetFontSize(0);
 }
 
@@ -95,13 +95,14 @@ void Quadrilateral::Init(const Quadrilateral &o) {
 	sides[1] = o.sides[1]; 
 	sides[2] = o.sides[2]; 
 	sides[3] = o.sides[3];
+	tarea = o.tarea;
 }
 
 
 
 /// @brief total reset of the object  
 void Quadrilateral::Reset() {
-	
+
 	if (tarea != NULL) {
 		delete tarea;
 		tarea = NULL;

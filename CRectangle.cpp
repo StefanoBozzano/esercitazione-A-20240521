@@ -42,15 +42,16 @@ Rectangle::Rectangle(float w, float h) {
 /// @param h height of the rectangle 
 /// @param sf struct of type Format
 Rectangle::Rectangle(float w, float h, TextArea ta) {
-	cout << "Rectangle - constructor with defined height, width and" << endl;
-	//Rectangle(w,h);
-	SetTextArea(ta);
+	cout << "Rectangle - constructor with defined height, width and TextArea" << endl;
+	
 	if (w <= 0. || h <= 0.) {
 		WarningMessage("constructor: width and height should be > 0"); 
 		SetDim(0,0);
 	}
 	else
 		SetDim(w,h);
+	
+	Quadrilateral :: SetTextArea(ta);
 }
 
 /// @brief destructor 
@@ -89,7 +90,7 @@ Rectangle& Rectangle::operator=(const Rectangle &r) {
 /// @return true if the two objects have the same width and the same length  
 bool Rectangle::operator==(const Rectangle &r) { 
 
-	if (r.width == width && r.height == height)
+	if (r.width == width && r.height == height && r.tarea == tarea)
 		return true;
 		
 	return false;
@@ -97,11 +98,7 @@ bool Rectangle::operator==(const Rectangle &r) {
 
 /// @brief default initialization of the object
 void Rectangle::Init() {
-	
 	SetDim(0,0);
-
-
-	
 }
 
 
@@ -111,7 +108,8 @@ void Rectangle::Init(const Rectangle &r) {
 	
 	Init();
 	SetDim(r.width,r.height);
-																//Capire se mettere anche il SetTextArea
+	Quadrilateral :: SetTextArea(*r.tarea);
+																
 	
 }
 

@@ -1,3 +1,4 @@
+//g++ -o main.exe .\main_test.cpp .\CQuadrilateral.cpp .\CRectangle.cpp .\CRhombus.cpp .\CQuadrilateral.h .\CRhombus.h .\CRectangle.h .\StructTextArea.h
 #include<iostream>
 #include <cstring>
 
@@ -33,9 +34,11 @@ int main() {
 	a2.size = 14;
 	
 	Rectangle rectA(10,5);
-	Rectangle rectB(3,7,a1);
-	Rectangle rectC = rectA;
 
+	Rectangle rectB(3,7,a1);
+
+	Rectangle rectC = rectA;
+	
 	Rhombus rhoA(6,2,a2);
 	Rhombus rhoB = rhoA;
 	Rhombus rhoC(4,3);
@@ -50,7 +53,7 @@ int main() {
 	Show();
 	
 	rectA.SetFontSize(20);
-	rectC=rectA;
+	rectC=rectA;						
 	rectB.SetTextArea(a2);
 	rhoB.SetText(t3);
 	
