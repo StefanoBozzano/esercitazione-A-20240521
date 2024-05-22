@@ -73,8 +73,10 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 /// @brief default initialization of the object
 void Quadrilateral::Init() {
+
 	SetSides(0.,0.,0.,0.);	
-	SetText("None");
+	tarea = new TextArea();
+	SetText("");
 	SetFontSize(0);
 }
 
@@ -147,6 +149,7 @@ void Quadrilateral::GetTextArea(TextArea &ta) {
 /// @brief get the text of the text area 
 /// @param text the string used in the text area 
 void Quadrilateral::GetText(char* text) {
+	
 	text = tarea->string;
 	
 }
@@ -161,19 +164,23 @@ unsigned int Quadrilateral::GetFontSize() {
 /// @brief set the text area of the object 
 /// @param ta a struct of type TextArea filled with a text and a font size
 void Quadrilateral::SetTextArea(TextArea ta) {
-	tarea = &ta;
-	
+	*tarea = ta;
 }
 
 /// @brief set the text of the text area 
 /// @param text the text 
 void Quadrilateral::SetText(char* text) {
-	*tarea->string = *text;									//TO fix
+			
+	if ((tarea != NULL) && (tarea->string != NULL)){
+        strncpy(tarea->string, text, SLEN - 1);
+        tarea->string[SLEN - 1] = '\0';
+    }
+	
 }
 
 /// @brief set the font size of the text area 
 /// @param size the font size 
-void Quadrilateral::SetFontSize(unsigned int size) {
+void Quadrilateral::SetFontSize(unsigned int size){
 	tarea->size = size;
 
 }
