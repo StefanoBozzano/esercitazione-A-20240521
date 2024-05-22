@@ -72,14 +72,27 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 
 /// @brief default initialization of the object
+/// @param init_text initialization text of struct "TextArea" 
+/// @param init_text_ptr pointer to "init_text"
 void Quadrilateral::Init() {
-	
+	char init_text[SLEN] = "";
+	char* init_text_ptr = NULL; 
+
 	SetSides(0.,0.,0.,0.);	
 	tarea = new TextArea();
-	SetText("");									//to fix
-	SetFontSize(0);
+	
+	strncpy(init_text_ptr, init_text,strlen(init_text_ptr)+1);
+	if (init_text_ptr == NULL){
+		cout << "ERROR -- uadrilateral::Init() -- NULL Pointer"<<endl;
+	}
+	else{
+		SetText(init_text_ptr);								
+		SetFontSize(0);
+	}
 }
 
+/// @brief initialization of the object with TextArea given
+/// @param ta a struct of type TextArea to set, given from User 
 void Quadrilateral::Init(TextArea ta) {
 	Reset();
 	Init();
@@ -87,7 +100,7 @@ void Quadrilateral::Init(TextArea ta) {
 }
 
 /// @brief initialization of the object as a copy of an object 
-/// @param r reference to the object that should be copied 
+/// @param o reference to the object that should be copied 
 void Quadrilateral::Init(const Quadrilateral &o) {
 	Reset();
 	Init();
@@ -173,9 +186,17 @@ void Quadrilateral::SetTextArea(TextArea ta) {
 void Quadrilateral::SetText(char* text) {
 			
 	if ((tarea != NULL) && (tarea->string != NULL)){
-        strncpy(tarea->string, text, SLEN - 1);
-        tarea->string[SLEN - 1] = '\0';
-    }
+		if (text == NULL){
+			strncpy(tarea->string, text, SLEN - 1);
+			tarea->string[SLEN - 1] = '\0';
+		}
+		else{
+			cout << "ERROR -- uadrilateral::SetText -- NULL pointer"<<endl;
+		}
+	}
+	else{
+		cout << "ERROR -- uadrilateral::SetText -- NULL pointer"<<endl;
+	}
 	
 }
 
@@ -216,9 +237,6 @@ void Quadrilateral::Dump() {
 	
 	cout << "Sides = " << sides[0] << "; " << sides[1] << "; " << sides[2] << "; " << sides[3] << "; " << endl;
 	cout << "Perimeter = " << GetPerimeter() << endl;
-	//cout << "Area = " << GetArea() << endl;
-	//cout << "Text = " << GetText() << endl;
-//	cout << "Size text = " << GetFontSize() << endl;
 	cout << "------------------" << endl; 
 	cout << endl;
 

@@ -1,0 +1,10 @@
+- In CRectangle.cpp, Rectangle::Rectangle(float w, float h, TextArea ta)  evitare la ripetizione di:
+    if (w <= 0. || h <= 0.) {
+            WarningMessage("constructor: width and height should be > 0"); 
+            SetDim(0,0);
+        }
+        else
+            SetDim(w,h);
+    
+    gia usata in Rectangle::Rectangle(float w, float h)
+    Lo stesso per CRhombus.cpp

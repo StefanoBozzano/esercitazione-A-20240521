@@ -1,4 +1,3 @@
-//g++ -o main.exe .\main_test.cpp .\CQuadrilateral.cpp .\CRectangle.cpp .\CRhombus.cpp .\CQuadrilateral.h .\CRhombus.h .\CRectangle.h .\StructTextArea.h
 #include<iostream>
 #include <cstring>
 
