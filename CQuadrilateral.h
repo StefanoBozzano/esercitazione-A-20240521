@@ -17,7 +17,7 @@ using namespace std;
 /// @brief an abstract base class for quadrilateral
 class Quadrilateral {
 protected:
-
+	bool debug = false;
 	float sides[4];
 	
 	TextArea* tarea;

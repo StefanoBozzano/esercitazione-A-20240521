@@ -12,7 +12,7 @@
 /// @brief default constructor 
 Rhombus::Rhombus() {
 
-	cout << "Rhombus - constructor - default" << endl;
+	if (debug) {cout << "Rhombus - constructor - default" << endl;}
 
 	Init();
 
@@ -25,7 +25,7 @@ Rhombus::Rhombus(float dL, float dS) {
 
 	Init();
 
-	cout << "Rhombus - constructor with diagL and diagS" << endl;
+	if (debug) {cout << "Rhombus - constructor with diagL and diagS" << endl;}
 
 	if (dL <= 0. || dS <= 0.) {
 		WarningMessage("constructor: diagonals should be > 0"); 
@@ -41,7 +41,7 @@ Rhombus::Rhombus(float dL, float dS) {
 /// @param dS diagonal (shorter)
 /// @param ta struct of type TextArea
 Rhombus::Rhombus(float dL, float dS, TextArea ta) {
-	cout << "Rhombus - constructor with diagL, diagS and TextArea" << endl;
+	if (debug) {cout << "Rhombus - constructor with diagL, diagS and TextArea" << endl;}
 	if (dL <= 0. || dS <= 0.) {
 		WarningMessage("constructor: diagonals should be > 0"); 
 		SetDim(0,0);
@@ -56,7 +56,7 @@ Rhombus::Rhombus(float dL, float dS, TextArea ta) {
 /// @brief destructor 
 Rhombus::~Rhombus() {
 
-	cout << "Rhombus - destructor" << endl;
+	if (debug) {cout << "Rhombus - destructor" << endl;}
 	Reset();
 
 }
@@ -65,7 +65,7 @@ Rhombus::~Rhombus() {
 /// @param o reference to the object that should be copied 
 Rhombus::Rhombus(const Rhombus &r) { 
 
-	cout << "Rhombus - copy constructor" << endl;
+	if (debug) {cout << "Rhombus - copy constructor" << endl;}
 
 	Init(r);
 	
@@ -76,7 +76,7 @@ Rhombus::Rhombus(const Rhombus &r) {
 /// @return reference to the object on the left side of the operator 
 Rhombus& Rhombus::operator=(const Rhombus &r) { 
 
-	cout << "Rhombus - operator =" << endl;
+	if (debug) {cout << "Rhombus - operator =" << endl;}
 
 	Init(r);
 	

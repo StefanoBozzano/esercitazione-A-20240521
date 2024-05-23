@@ -4,7 +4,7 @@
 /// @brief default constructor 
 Quadrilateral::Quadrilateral() {
 
-	cout << "Quadrilateral - constructor - default" << endl;
+	if (debug) {cout << "Quadrilateral - constructor - default" << endl;}
 
 	Init();
 
@@ -14,7 +14,7 @@ Quadrilateral::Quadrilateral() {
 /// ta a struct of type TextArea with infos on text and font size
 Quadrilateral::Quadrilateral(TextArea ta) {
 	
-	cout << "Quadrilateral - initialized Text Area" << endl;
+	if (debug) {cout << "Quadrilateral - initialized Text Area" << endl;}
 	Init(ta);
 } 
 
@@ -22,7 +22,7 @@ Quadrilateral::Quadrilateral(TextArea ta) {
 /// @param o reference to the object that should be copied 
 Quadrilateral::Quadrilateral(const Quadrilateral &o) {
 	
-	cout << "Quadrilateral - copy constructor" << endl;
+	if (debug) {cout << "Quadrilateral - copy constructor" << endl;}
 
 	Init(o);
 }
@@ -30,7 +30,7 @@ Quadrilateral::Quadrilateral(const Quadrilateral &o) {
 /// @brief destructor
 Quadrilateral::~Quadrilateral() {
 
-	cout << "Quadrilateral - destructor" << endl;
+	if (debug) {cout << "Quadrilateral - destructor" << endl;}
 	Reset();
 
 }  
@@ -72,23 +72,23 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 
 /// @brief default initialization of the object
-/// @param init_text initialization text of struct "TextArea" 
-/// @param init_text_ptr pointer to "init_text"
+
 void Quadrilateral::Init() {
-	char init_text[SLEN] = "";
-	char* init_text_ptr = NULL; 
+	//char init_text[SLEN] = "";
+	//char* init_text_ptr = " "; 
 
 	SetSides(0.,0.,0.,0.);	
 	tarea = new TextArea();
 	
-	strncpy(init_text_ptr, init_text,strlen(init_text_ptr)+1);
-	if (init_text_ptr == NULL){
-		cout << "ERROR -- uadrilateral::Init() -- NULL Pointer"<<endl;
-	}
-	else{
-		SetText(init_text_ptr);								
-		SetFontSize(0);
-	}
+	//strncpy(init_text_ptr, init_text,SLEN-1);
+	
+	//if (init_text_ptr == NULL){
+	//	cout << "ERROR -- uadrilateral::Init() -- NULL Pointer"<<endl;
+	//}
+	//else{
+	//SetText("d");				//init_text_ptr				
+	//SetFontSize(0);
+	//}
 }
 
 /// @brief initialization of the object with TextArea given
@@ -191,7 +191,7 @@ void Quadrilateral::SetText(char* text) {
 			tarea->string[SLEN - 1] = '\0';
 		}
 		else{
-			cout << "ERROR -- uadrilateral::SetText -- NULL pointer"<<endl;
+			cout << "ERROR -- uadrilateral::SetText --  text NULL pointer"<<endl;
 		}
 	}
 	else{
@@ -239,6 +239,6 @@ void Quadrilateral::Dump() {
 	cout << "Perimeter = " << GetPerimeter() << endl;
 	cout << "------------------" << endl; 
 	cout << endl;
-
+	//add TextArea parameters
 }
 

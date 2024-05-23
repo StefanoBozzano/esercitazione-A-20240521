@@ -11,7 +11,7 @@
 /// @brief default constructor 
 Rectangle::Rectangle() {
 
-	cout << "Rectangle - constructor - default" << endl;
+	if (debug) {cout << "Rectangle - constructor - default" << endl;}
 
 	Init();
 
@@ -24,7 +24,7 @@ Rectangle::Rectangle(float w, float h) {
 	
 	Init();
 
-	cout << "Rectangle - constructor with defined height and width" << endl;
+	if (debug) {cout << "Rectangle - constructor with defined height and width" << endl;}
 
 	if (w <= 0. || h <= 0.) {
 		WarningMessage("constructor: width and height should be > 0"); 
@@ -42,7 +42,7 @@ Rectangle::Rectangle(float w, float h) {
 /// @param h height of the rectangle 
 /// @param sf struct of type Format
 Rectangle::Rectangle(float w, float h, TextArea ta) {
-	cout << "Rectangle - constructor with defined height, width and TextArea" << endl;
+	if (debug) { cout << "Rectangle - constructor with defined height, width and TextArea" << endl;}
 	
 	if (w <= 0. || h <= 0.) {
 		WarningMessage("constructor: width and height should be > 0"); 
@@ -57,7 +57,7 @@ Rectangle::Rectangle(float w, float h, TextArea ta) {
 /// @brief destructor 
 Rectangle::~Rectangle() {
 
-	cout << "Rectangle - destructor" << endl;
+	if (debug) {cout << "Rectangle - destructor" << endl;}
 	Reset();
 
 }
@@ -66,7 +66,7 @@ Rectangle::~Rectangle() {
 /// @param o reference to the object that should be copied 
 Rectangle::Rectangle(const Rectangle &r) { 
 
-	cout << "Rectangle - copy constructor" << endl;
+	if (debug) {cout << "Rectangle - copy constructor" << endl;}
 
 	Init(r);
 	
@@ -77,7 +77,7 @@ Rectangle::Rectangle(const Rectangle &r) {
 /// @return reference to the object on the left side of the operator 
 Rectangle& Rectangle::operator=(const Rectangle &r) { 
 
-	cout << "Rectangle - operator =" << endl;
+	if (debug) { cout << "Rectangle - operator =" << endl;}
 
 	Init(r);
 	
