@@ -4,13 +4,14 @@
 #include "CQuadrilateral.h"
 #include "CRectangle.h"
 #include "CRhombus.h"
+#include "UsrWindow.h"
 
 const int LISTL=6; 
 
 Quadrilateral* quadList[LISTL];
 
 void Show() {
-	
+	//Window main_window;
 	int i; 
 	
 	for (i=0; i<LISTL; i++)
@@ -21,7 +22,7 @@ void Show() {
 
 int main() {
 
-	 
+	Window main_wiondow;
 	TextArea a1, a2;
 	char t1[SLEN]= "testo 1"; 
 	char t2[SLEN]= "testo 2"; 
@@ -41,7 +42,7 @@ int main() {
 	Rhombus rhoA(6,2,a2);
 	Rhombus rhoB = rhoA;
 	Rhombus rhoC(4,3);
-		
+	/*
 	quadList[0]= &rectA;
 	quadList[1]= &rectB;
 	quadList[2]= &rectC;
@@ -50,16 +51,19 @@ int main() {
 	quadList[5]= &rhoC;
 
 	Show();
-	
+		
 	rectA.SetFontSize(20);
-	rectC=rectA;						
+	
+	rectC=rectA;					
 	rectB.SetTextArea(a2);
 	rhoB.SetText(t3);
 	
 	
+	
 	Show();
 
-
+	*/
+	
 	return 0;
 
 }

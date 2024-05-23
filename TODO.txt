@@ -8,3 +8,11 @@
     
     gia usata in Rectangle::Rectangle(float w, float h)
     Lo stesso per CRhombus.cpp
+
+
+- contenitore 50 forme (con puntatori)
+opzini urs: 
+    - visualizzare tutte le forme
+    - aggiungere forme
+    - rimuovere la forma
+    - rimuovere tutte le forme

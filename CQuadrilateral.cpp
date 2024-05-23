@@ -86,8 +86,8 @@ void Quadrilateral::Init() {
 	//	cout << "ERROR -- uadrilateral::Init() -- NULL Pointer"<<endl;
 	//}
 	//else{
-	//SetText("d");				//init_text_ptr				
-	//SetFontSize(0);
+	SetText("");				//init_text_ptr				
+	SetFontSize(0);
 	//}
 }
 
@@ -184,15 +184,9 @@ void Quadrilateral::SetTextArea(TextArea ta) {
 /// @brief set the text of the text area 
 /// @param text the text 
 void Quadrilateral::SetText(char* text) {
-			
 	if ((tarea != NULL) && (tarea->string != NULL)){
-		if (text == NULL){
-			strncpy(tarea->string, text, SLEN - 1);
-			tarea->string[SLEN - 1] = '\0';
-		}
-		else{
-			cout << "ERROR -- uadrilateral::SetText --  text NULL pointer"<<endl;
-		}
+		strncpy(tarea->string, text, SLEN - 1);
+		tarea->string[SLEN - 1] = '\0';
 	}
 	else{
 		cout << "ERROR -- uadrilateral::SetText -- NULL pointer"<<endl;
