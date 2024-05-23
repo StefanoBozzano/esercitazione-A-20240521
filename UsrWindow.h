@@ -9,6 +9,7 @@
 #define USRWINDOW_H
 
 #include<iostream> 
+#include "CQuadrilateral.h"
 
 
 using namespace std;
@@ -17,8 +18,14 @@ using namespace std;
 /// @brief an abstract base class for quadrilateral
 class Window {
 private:
-    bool debug_win = false;
+    bool debug_win = true;
     int usr_choice;
+
+	quadrilateral_container* first_quadrilateral_pointer = NULL;
+	void new_rectangle();
+	Rectangle usr_rectangle();
+	void new_rhombus();
+	
 
 public:
 
