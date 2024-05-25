@@ -207,7 +207,7 @@ void Rectangle::ErrorMessage(const char *string) {
 /// @brief to draw a rectangle
 void Rectangle::Drawing() {
 	const char emply[SLEN] = "";
-	cout << "Sono un rettangolo: ";
+	cout << "Rettangolo: ";
 	cout << "\tbase: " << width;
 	cout << "\taltezza: " << height;
 	cout << "\tperimetro: " << GetPerimeter();

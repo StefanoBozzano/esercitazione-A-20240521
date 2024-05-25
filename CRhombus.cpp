@@ -247,7 +247,7 @@ void Rhombus::Dump() {
 /// @brief to draw a rhombus
 void Rhombus::Drawing() {
 	const char emply[SLEN] = "";
-	cout << "Sono un rombo: ";
+	cout << "Rombo: ";
 	cout << "\tdiagL: " << diagL;
 	cout << "\tdiagsS " << diagS;
 	cout << "\tperimetro: " << GetPerimeter();

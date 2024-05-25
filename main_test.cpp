@@ -42,7 +42,7 @@ int main() {
 	Rhombus rhoA(6,2,a2);
 	Rhombus rhoB = rhoA;
 	Rhombus rhoC(4,3);
-	/*
+	
 	quadList[0]= &rectA;
 	quadList[1]= &rectB;
 	quadList[2]= &rectC;
@@ -50,8 +50,8 @@ int main() {
 	quadList[4]= &rhoB;
 	quadList[5]= &rhoC;
 
-	Show();
-		
+	//Show();
+	/*	
 	rectA.SetFontSize(20);
 	
 	rectC=rectA;					

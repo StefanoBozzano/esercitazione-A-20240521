@@ -10,6 +10,10 @@
 
 #include<iostream> 
 #include "CQuadrilateral.h"
+#include "CRectangle.h"
+#include "CRhombus.h"
+#include <vector>
+#include <memory>
 
 
 using namespace std;
@@ -19,12 +23,22 @@ using namespace std;
 class Window {
 private:
     bool debug_win = true;
-    int usr_choice;
+    int usr_choice = 0;
+ 
+	vector< shared_ptr<Quadrilateral>> shapes;
+	
+	//std::vector<std::shared_ptr<Quadrilateral>> shapes;
 
-	quadrilateral_container* first_quadrilateral_pointer = NULL;
-	void new_rectangle();
-	Rectangle usr_rectangle();
-	void new_rhombus();
+    // Aggiungi un Square e un Rhombus al vector
+   // shapes.push_back(std::make_shared<Square>(5.0));
+    //shapes.push_back(std::make_shared<Rhombus>(3.0, 4.0));
+
+    // Itera sugli oggetti e chiama il metodo display
+    //for (const auto& shape : shapes) {
+    //    shape->display();
+    //}
+	//void add_object();
+	void textarea_req(int shape_position);
 	
 
 public:
@@ -38,18 +52,18 @@ public:
 
     /// @name BASIC HANDLING
 	/// @{
-	void Init();	
+	//void Init();	
     void Loop();						
-	void Reset();												
+	//void Reset();												
 	/// @}
 
 
     /// @name 
 	/// @{
-	void options();
+	//void options();
     void option_one();
     void option_two();
-    void option_tree();
+    void option_three();
     void option_four();
 	/// @}
 

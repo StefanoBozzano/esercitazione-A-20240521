@@ -86,7 +86,7 @@ void Quadrilateral::Init() {
 	//	cout << "ERROR -- uadrilateral::Init() -- NULL Pointer"<<endl;
 	//}
 	//else{
-	SetText("");				//init_text_ptr				
+	//SetText("");				//init_text_ptr				
 	SetFontSize(0);
 	//}
 }
