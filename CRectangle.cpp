@@ -10,11 +10,8 @@
 
 /// @brief default constructor 
 Rectangle::Rectangle() {
-
 	if (debug) {cout << "Rectangle - constructor - default" << endl;}
-
 	Init();
-
 }
 
 /// @brief constructor 
@@ -109,8 +106,6 @@ void Rectangle::Init(const Rectangle &r) {
 	Init();
 	SetDim(r.width,r.height);
 	Quadrilateral :: SetTextArea(*r.tarea);
-																
-	
 }
 
 /// @brief total reset of the object  

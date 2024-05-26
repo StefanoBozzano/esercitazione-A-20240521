@@ -15,63 +15,35 @@
 #include <vector>
 #include <memory>
 
-
 using namespace std;
 
 /// @class Window
-/// @brief an abstract base class for quadrilateral
+/// @brief to organize a container of shapes chosen by the user
 class Window {
 private:
-    bool debug_win = true;
+    bool debug_win = false;
     int usr_choice = 0;
  
 	vector< shared_ptr<Quadrilateral>> shapes;
-	
-	//std::vector<std::shared_ptr<Quadrilateral>> shapes;
+	 void Loop();	
 
-    // Aggiungi un Square e un Rhombus al vector
-   // shapes.push_back(std::make_shared<Square>(5.0));
-    //shapes.push_back(std::make_shared<Rhombus>(3.0, 4.0));
-
-    // Itera sugli oggetti e chiama il metodo display
-    //for (const auto& shape : shapes) {
-    //    shape->display();
-    //}
-	//void add_object();
-	void textarea_req(int shape_position);
-	
-
-public:
-
-	/// @name CONSTRUCTORS/DESTRUCTOR
+	/// @name user options
 	/// @{
-	Window();
-	
-	//virtual ~Window();
-	/// @}
-
-    /// @name BASIC HANDLING
-	/// @{
-	//void Init();	
-    void Loop();						
-	//void Reset();												
-	/// @}
-
-
-    /// @name 
-	/// @{
-	//void options();
     void option_one();
     void option_two();
     void option_three();
     void option_four();
 	/// @}
-
 	
+	void textarea_req();
 	
-	
+public:
 
-
+	/// @name CONSTRUCTORS/DESTRUCTOR
+	/// @{
+	Window();
+	~Window();
+	/// @}
 };
 
 #endif
